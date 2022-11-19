@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-dtq!$a62a&7=49bnbj0f9ku!x5+(56w+0@j))a1+t9hd6s_17i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,12 +128,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
 
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+STATIC_URL = '/static/'
+# define where your staticfiles files will be collected
+# It will be `absolute/path/to/demo3/staticfiles`
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# keep it empty for the moment
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
 )
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 
