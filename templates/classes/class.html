@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<main>
+ 
+    <section class="class-area pt-60 pb-60">
+        <div class="container">
+            <div class="row">
+
+                
+            {% for class in classes %}
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="class-item mb-30 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="class-thumb">
+                            <img src="{{class.image.url}}" alt="image_not_found">
+                        </div>
+                        <div class="class-text">
+                            <a href="{% url 'classes:services-detail' class.pk %}"><h3>{{class.title|truncatechars:50}}</h3></a>
+                            <span>Class time {{class.classtimestart}}-{{class.classtimefinish}} </span>
+                            <p>{{class.content|truncatechars:200}}</p>
+                        </div>
+                        <ul class="schedule">
+                            <li>
+                                <span>Duration</span>
+                                <span>{{class.durationofclass}} Hours</span>
+                            </li>
+                            <li>
+                                <span>Years</span>
+                                <span>{{class.childagestart}}-{{class.childagefinish}}</span>
+                            </li>
+                            <li>
+                                <span>Tution Fee</span>
+                                <span>${{class.price}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              
+
+
+            {% endfor %}
+
+
+              
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="view-class text-center mt-30 wow fadeInUp" data-wow-delay=".2s">
+                        <a class="thm-btn thm-btn-2" href="#">see load more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+</main>
+
+
+
+{% endblock %}
